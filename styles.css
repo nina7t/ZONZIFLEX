@@ -1,0 +1,220 @@
+:root {
+  --bg: #05051c;
+  --accent: #f975c2;
+  --text: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Futura PT", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: "Climate Crisis", sans-serif;
+  font-size: clamp(5em, 10vw, 8rem);
+  text-align: center;
+  margin: 10vh auto 2rem;
+  line-height: 1.1;
+}
+
+section {
+  width: min(90%, 1200px);
+  margin-inline: auto;
+}
+
+/* NAVBAR */
+.nav {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  padding: 0.7rem 1.8rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  z-index: 1000;
+}
+
+.nav ul {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.25s;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+/* wave icon */
+.wave-icon {
+  width: 24px;
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  justify-content: center;
+  cursor: pointer;
+  align-self: center; /* nouveau */
+}
+
+.nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+.wave-bar {
+  width: 4px;
+  height: 8px;
+  background: var(--text);
+  border-radius: 2px;
+  animation: wave 1s infinite ease-in-out;
+}
+
+.wave-bar:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.wave-bar:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.wave-icon:hover .wave-bar {
+  background: var(--accent);
+}
+.wave-icon.paused .wave-bar {
+  animation: none;
+  opacity: 0.4;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1.4);
+  }
+}
+
+/* PLAYER CARD */
+.music-player {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.track-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.track {
+  width: 150px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.track:hover {
+  transform: scale(1.05);
+}
+
+.track img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.track p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+audio {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 12px;
+}
+
+/* Masonry Gallery */
+.gallery {
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  break-inside: avoid;
+  filter: grayscale(100%) contrast(1.1);
+  transform: translateY(30px);
+  opacity: 0;
+  transition: filter 0.3s, transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+.gallery img.visible {
+  transform: none;
+  opacity: 1;
+}
+
+.gallery img:hover {
+  filter: none;
+}
+
+/* Anim fade */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: none;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.65;
+}
+
+@media (max-width: 800px) {
+  .gallery {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery {
+    column-count: 1;
+  }
+}

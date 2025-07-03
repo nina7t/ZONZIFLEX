@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pour mon amour ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+
+</head>
+<body>
+  <h1 class="fade-up">ZONZONLAND</h1>
+  <section class="fade-up">
+    <p style="font-size:1.3rem;line-height:1.5;text-align:center;margin-bottom:2rem"><b>Pour mon chouchou...</b><br>      <br>
+      Parce que chaque jour tu me remplis de bonheur, tu es mon petit rayon de soleil, et pour ça je te dis merci.
+      Quand nos chemins se sont croisés, j’ai senti que tout était fait pour que nous soyons ensemble. Comme si les étoiles s’étaient alignées pour nous, un peu comme dans les plus belles chansons d’amour.
+      <br>      <br>
+      Cela fait maintenant 7 mois que nous nous sommes rencontrés, et l’amour que j’ai pour toi ne fait que grandir.
+      J’ai voulu créer une petite page web pour que nous ayons notre cocon musical, un peu comme la première grande lettre que je t’ai écrite.
+      <br>      <br>
+      Considère ça comme une lettre d’amour à laquelle j’ai ajouté des musiques de lover, hihi.
+      Maintenant, tu peux cliquer, écouter, contempler… et surtout sourire.&nbsp;! ❤️</p></section>
+
+  <!-- NAV BAR -->
+  <nav class="nav"><ul>
+      <li><a href="#music">Musique</a></li>
+      <li><div class="wave-icon paused" id="playToggle"><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div></div></li>
+      <li><a href="#gallery">Galerie</a></li>
+   
+  </ul></nav>
+
+  <!-- MUSIC SECTION -->
+  <section id="music" class="fade-up music-player">
+    <h2 style="text-align:center;margin-bottom:1rem">Notre playlist</h2>
+    <div class="track-gallery" id="trackGallery"></div>
+    <audio id="player" controls></audio>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section class="gallery fade-up" id="gallery">
+    <img src="images/amor.jpg" alt="Souvenir 1">
+    <img src="images/barrywhite.jpg" alt="Souvenir 2">
+    <img src="images/celinedion.jpg" alt="Souvenir 3">
+    <img src="images/chapman.jpg" alt="Souvenir 4">
+    <img src="images/crowedhouse.jpg" alt="Souvenir 5">
+    <img src="images/dirtydancing.jpg" alt="Souvenir 6">
+    <img src="images/Elle-est-dailleurs.jpg" alt="Souvenir 7">
+    <img src="images/eltojohn.jpg" alt="Souvenir 8">
+    <img src="images/lionelrichie.jpg" alt="Souvenir 9">
+    <img src="images/love.jpg" alt="Souvenir 10">
+    <img src="images/lovehurt.jpg" alt="Souvenir 11">
+    <img src="images/nothing.jpg" alt="Souvenir 12">
+    <img src="images/police.jpg" alt="Souvenir 13">
+    <img src="images/sabali.jpg" alt="Souvenir 14">
+    <img src="images/takemybreath.jpg" alt="Souvenir 15">
+    <img src="images/umbertotozzi.jpg" alt="Souvenir 16">
+    <img src="images/unchainedmelody.jpg" alt="Souvenir 17">
+    <img src="images/wham.jpg" alt="Souvenir 18">
+    <img src="images/words.jpg" alt="Souvenir 19">
+
+  </section>
+
+  <footer class="fade-up">Fait avec tout mon ❤️ rien que pour toi.</footer>
+
+  <script>
+    /* === TRACKS === */
+    const tracks=[
+      { title:"Say You Say Me",file:"music/Say You, Say Me.mp3",cover:"images/lionelrichie.jpg"},
+      { title:"Every Breath You Take",file:"music/The Police - Every Breath You Take (Official Video).mp3",cover:"images/police.jpg"},
+      { title:"Unchained Melody",file:"music/Unchained Melody.mp3",cover:"images/unchainedmelody.jpg"},
+      { title:"Baby Can I Hold You",file:"music/Tracy Chapman - Baby Can I Hold You (Official Music Video).mp3",cover:"images/chapman.jpg"},
+      { title:"Love Hurts",file:"music/Nazareth - Love Hurts (Official Audio).mp3",cover:"images/lovehurt.jpg"},
+      { title:"Elle est d'ailleurs",file:"music/Pierre Bachelet - Elle est dailleurs (Audio).mp3",cover:"images/Elle-est-dailleurs.jpg"}
+      // Ajoute les autres...
+    ];
+
+    const player=document.getElementById('player');
+    const gallery=document.getElementById('trackGallery');
+    const playToggle=document.getElementById('playToggle');
+    let currentIndex=0;
+
+    /* === FADE HELPERS === */
+    const FADE_TIME=800; // ms
+    const VOLUME_STEP=0.05;
+
+    function fade(volumeTarget,callback){
+      const dir=volumeTarget>player.volume?1:-1;
+      const interval=VOLUME_STEP*FADE_TIME;
+      const fadeInterval=setInterval(()=>{
+        let v=player.volume+dir*VOLUME_STEP;
+        v=Math.min(1,Math.max(0,v));
+        player.volume=v;
+        if((dir===1 && v>=volumeTarget)||(dir===-1 && v<=volumeTarget)){
+          clearInterval(fadeInterval);
+          if(callback)callback();
+        }
+      },interval);
+    }
+
+    function loadTrack(i){
+      const startNew=()=>{
+        player.src=tracks[i].file;
+        currentIndex=i;
+        player.load();
+        player.volume=0;
+        player.play();
+        fade(1);
+      };
+      if(!player.paused){
+        fade(0,startNew);
+      }else{
+        startNew();
+      }
+    }
+
+    /* === BUILD GALLERY === */
+    tracks.forEach((t,i)=>{
+      const el=document.createElement('div');
+      el.className='track';
+      el.innerHTML=`<img src="${t.cover}" alt="${t.title}"><p>${t.title}</p>`;
+      el.addEventListener('click',()=>loadTrack(i));
+      gallery.appendChild(el);
+    });
+    // load first track silently
+    player.src=tracks[0].file;
+    player.load();
+    player.volume=1;
+
+    /* === PLAY/PAUSE TOGGLE === */
+    playToggle.addEventListener('click',()=>{
+      if(player.paused){
+        fade(1);player.play();
+      }else{
+        fade(0,()=>player.pause());
+      }
+    });
+    player.addEventListener('play',()=>playToggle.classList.remove('paused'));
+    player.addEventListener('pause',()=>playToggle.classList.add('paused'));
+
+    /* === SCROLL OBSERVER === */
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+    },{threshold:0.2});
+    document.querySelectorAll('.fade-up, .gallery img').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
