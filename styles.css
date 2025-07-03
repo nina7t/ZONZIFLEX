@@ -1,6 +1,6 @@
 :root {
   --bg: #05051c;
-  --accent: #f975c2;
+  --accent: #718dfe;
   --text: #ffffff;
 }
 
@@ -76,7 +76,7 @@ section {
   align-items: flex-end;
   justify-content: center;
   cursor: pointer;
-  align-self: center; /* nouveau */
+  align-self: center;
 }
 
 .nav ul li {
@@ -103,6 +103,7 @@ section {
 .wave-icon:hover .wave-bar {
   background: var(--accent);
 }
+
 .wave-icon.paused .wave-bar {
   animation: none;
   opacity: 0.4;
@@ -117,82 +118,45 @@ section {
   }
 }
 
-#nextBtn {
-  background: var(--accent);
-  color: var(--text);
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: block;
-  margin: 1rem auto 0;
-}
-
-#nextBtn:hover {
-  background: #d961a8; /* variante plus foncée de accent */
-}
-/* PLAYER CARD */
-.music-player {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(14px) saturate(160%);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
-  border-radius: 20px;
-  padding: 1rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-}
-
-.track-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.track {
-  width: 150px;
-  cursor: pointer;
+/* Titre pour la section musique */
+.music-title {
+  margin: 2em;
+  font-family: "Climate Crisis", sans-serif;
+  font-size: clamp(2.5em, 6vw, 4rem);
   text-align: center;
-  transition: transform 0.3s;
+  margin: 5vh auto 3rem;
+  line-height: 1.1;
+  background: #e2e2e2;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.track:hover {
-  transform: scale(1.05);
-}
-
-.track img {
-  width: 100%;
-  border-radius: 12px;
-}
-
-.track p {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-}
-
+/* Lecteur audio caché mais fonctionnel */
 audio {
-  width: 100%;
-  margin-top: 1rem;
-  border-radius: 12px;
+  position: fixed;
+  bottom: -100px;
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* Masonry Gallery */
+/* Masonry Gallery pour les albums */
 .gallery {
-  column-count: 3;
-  column-gap: 1rem;
+  column-count: 4;
+  column-gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .gallery img {
   width: 100%;
   border-radius: 12px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   break-inside: avoid;
   filter: grayscale(100%) contrast(1.1);
   transform: translateY(30px);
   opacity: 0;
   transition: filter 0.3s, transform 0.6s ease-out, opacity 0.6s ease-out;
+  cursor: pointer;
 }
 
 .gallery img.visible {
@@ -202,6 +166,31 @@ audio {
 
 .gallery img:hover {
   filter: none;
+  transform: scale(1.02);
+}
+
+.gallery img.playing {
+  outline: 3px solid var(--accent);
+  filter: none;
+  box-shadow: 0 0 20px rgba(113, 141, 254, 0.5);
+}
+
+/* Indicateur de lecture en cours */
+.now-playing {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  display: none;
+  z-index: 1000;
+}
+
+.now-playing.active {
+  display: block;
 }
 
 /* Anim fade */
@@ -223,6 +212,13 @@ footer {
   opacity: 0.65;
 }
 
+/* Media queries responsive */
+@media (max-width: 1000px) {
+  .gallery {
+    column-count: 3;
+  }
+}
+
 @media (max-width: 800px) {
   .gallery {
     column-count: 2;
@@ -233,4 +229,19 @@ footer {
   .gallery {
     column-count: 1;
   }
+}
+
+.nous{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.nous img{
+  max-width:500px;
+  max-height: 500px;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
 }

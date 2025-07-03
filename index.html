@@ -15,11 +15,11 @@
     <p style="font-size:1.3rem;line-height:1.5;text-align:center;margin-bottom:2rem">
       <b>Pour mon chouchou...</b><br><br>
       Parce que chaque jour tu me remplis de bonheur, tu es mon petit rayon de soleil, et pour ça je te dis merci.<br>
-      Quand nos chemins se sont croisés, j’ai senti que tout était fait pour que nous soyons ensemble. Comme si les étoiles s’étaient alignées pour nous, un peu comme dans les plus belles chansons d’amour.<br><br>
-      Cela fait maintenant 7 mois que nous nous sommes rencontrés, et l’amour que j’ai pour toi ne fait que grandir.<br>
-      J’ai voulu créer une petite page web pour que nous ayons notre cocon musical, un peu comme la première grande lettre que je t’ai écrite.<br><br>
-      Considère ça comme une lettre d’amour à laquelle j’ai ajouté des musiques de lover, hihi.<br>
-      Maintenant, tu peux cliquer, écouter, contempler… et surtout sourire. ❤️
+      Quand nos chemins se sont croisés, j'ai senti que tout était fait pour que nous soyons ensemble. Comme si les étoiles s'étaient alignées pour nous, un peu comme dans les plus belles chansons d'amour.<br><br>
+      Cela fait maintenant 7 mois que nous nous sommes rencontrés, et l'amour que j'ai pour toi ne fait que grandir.<br>
+      J'ai voulu créer une petite page web pour que nous ayons notre cocon musical, un peu comme la première grande lettre que je t'ai écrite.<br><br>
+      Considère ça comme une lettre d'amour à laquelle j'ai ajouté des musiques de lover, hihi.<br>
+      Maintenant, tu peux cliquer, écouter, contempler… et surtout sourire 🤗  Je t'aime fort ❤️ ta ninou ps: va jusqu'en bas de la page
     </p>
   </section>
 
@@ -38,157 +38,149 @@
     </ul>
   </nav>
 
-  <!-- MUSIC SECTION -->
-  <section id="music" class="fade-up music-player">
-    <h2 style="text-align:center;margin-bottom:1rem">Notre playlist</h2>
-    <div class="track-gallery" id="trackGallery"></div>
-    <audio id="player" controls></audio>
-    <button id="nextBtn" style="display:block;margin:1rem auto;">Suivant ▶️</button>
+  <!-- TITRE MUSIQUE -->
+  <h2 class="music-title fade-up" id="music">Nos Sons d'Amour</h2>
+
+  <!-- AUDIO PLAYER CACHÉ -->
+  <audio id="player" controls></audio>
+
+  <!-- INDICATEUR DE LECTURE -->
+  <div class="now-playing" id="nowPlaying">
+    <span id="currentTrack">Cliquez sur une image pour commencer</span>
+  </div>
+
+  <!-- PHOTO GALLERY EN MASONRY -->
+  <section class="gallery fade-up" id="gallery">
+    <img src="images/amor.jpg" alt="Souvenir 1" data-audio="music/Amor.mp3" data-title="Amor Amor Amor">
+    <img src="images/barry.jpg" alt="Souvenir 2" data-audio="music/Barry White - My First My Last My Everything.mp3" data-title="My First, My Last, My Everything">
+    <img src="images/celinedion.jpg" alt="Souvenir 3" data-audio="music/Céline Dion - The Power Of Love (Official Video).mp3" data-title="The Power of Love">
+    <img src="images/chapman.jpg" alt="Souvenir 4" data-audio="music/Tracy Chapman - Baby Can I Hold You (Official Music Video).mp3" data-title="Baby Can I Hold You">
+    <img src="images/crowedhouse.jpg" alt="Souvenir 5" data-audio="music/Crowded House - Dont Dream Its Over (Audio Remastered) (HQ).mp3" data-title="Don't Dream It's Over">
+    <img src="images/dirtydancing.jpg" alt="Souvenir 6" data-audio="music/Bill Medley, Jennifer Warnes - (Ive Had) The Time Of My Life (Official HD Video).mp3" data-title="The Time of My Life">
+    <img src="images/Elle-est-dailleurs.jpg" alt="Souvenir 7" data-audio="music/Pierre Bachelet - Elle est dailleurs (Audio).mp3" data-title="Elle est d'ailleurs">
+    <img src="images/eltojohn.jpg" alt="Souvenir 8" data-audio="music/Blue, Elton John - Sorry Seems To Be The Hardest Word.mp3" data-title="Sorry Seems To Be The Hardest Word">
+    <img src="images/lionelrichie.jpg" alt="Souvenir 9" data-audio="music/Say You, Say Me.mp3" data-title="Say You, Say Me">
+    <img src="images/love.jpg" alt="Souvenir 10" data-audio="music/L-O-V-E.mp3" data-title="L-O-V-E">
+    <img src="images/lovehurt.jpg" alt="Souvenir 11" data-audio="music/Nazareth - Love Hurts (Official Audio).mp3" data-title="Love Hurts">
+    <img src="images/nothing.jpg" alt="Souvenir 12" data-audio="music/Glenn Medeiros - Nothings Gonna Change My Love for You.mp3" data-title="Nothing's Gonna Change My Love for You">
+    <img src="images/police.jpg" alt="Souvenir 13" data-audio="music/The Police - Every Breath You Take (Official Video).mp3" data-title="Every Breath You Take">
+    <img src="images/sabali.jpg" alt="Souvenir 14" data-audio="music/Amadou & Mariam - Sabali (Official Audio).mp3" data-title="Sabali">
+    <img src="images/takemybreath.jpg" alt="Souvenir 15" data-audio="music/Berlin - Take My Breath Away (Official Video - Top Gun).mp3" data-title="Take My Breath Away">
+    <img src="images/umbertotozzi.jpg" alt="Souvenir 16" data-audio="music/Umberto Tozzi - Ti amo (Official Audio).mp3" data-title="Ti amo">
+    <img src="images/unchainedmelody.jpg" alt="Souvenir 17" data-audio="music/Unchained Melody.mp3" data-title="Unchained Melody">
+    <img src="images/wham.jpg" alt="Souvenir 18" data-audio="music/George Michael - Careless Whisper (Official Video).mp3" data-title="Careless Whisper">
+    <img src="images/words.jpg" alt="Souvenir 19" data-audio="music/Unchained Melody.mp3" data-title="Words">
   </section>
 
-  <!-- PHOTO GALLERY -->
-  <section class="gallery fade-up" id="gallery">
-    <img src="images/amor.jpg" alt="Souvenir 1">
-    <img src="images/barrywhite.jpg" alt="Souvenir 2">
-    <img src="images/celinedion.jpg" alt="Souvenir 3">
-    <img src="images/chapman.jpg" alt="Souvenir 4">
-    <img src="images/crowedhouse.jpg" alt="Souvenir 5">
-    <img src="images/dirtydancing.jpg" alt="Souvenir 6">
-    <img src="images/Elle-est-dailleurs.jpg" alt="Souvenir 7">
-    <img src="images/eltojohn.jpg" alt="Souvenir 8">
-    <img src="images/lionelrichie.jpg" alt="Souvenir 9">
-    <img src="images/love.jpg" alt="Souvenir 10">
-    <img src="images/lovehurt.jpg" alt="Souvenir 11">
-    <img src="images/nothing.jpg" alt="Souvenir 12">
-    <img src="images/police.jpg" alt="Souvenir 13">
-    <img src="images/sabali.jpg" alt="Souvenir 14">
-    <img src="images/takemybreath.jpg" alt="Souvenir 15">
-    <img src="images/umbertotozzi.jpg" alt="Souvenir 16">
-    <img src="images/unchainedmelody.jpg" alt="Souvenir 17">
-    <img src="images/wham.jpg" alt="Souvenir 18">
-    <img src="images/words.jpg" alt="Souvenir 19">
-  </section>
+<section class="nous">
+  <img src="images/zonzon.jpeg" alt="Souvenir 2">
+  <img src="images/nous.jpeg" alt="Souvenir 3">
+</section>
 
   <footer class="fade-up">Fait avec tout mon ❤️ rien que pour toi.</footer>
 
   <script>
-    /* === TRACKS === */
-    const tracks = [
-      { title:"Say You Say Me", file:"music/Say You, Say Me.mp3", cover:"images/lionelrichie.jpg" },
-      { title:"Every Breath You Take", file:"music/The Police - Every Breath You Take (Official Video).mp3", cover:"images/police.jpg" },
-      { title:"Unchained Melody", file:"music/Unchained Melody.mp3", cover:"images/unchainedmelody.jpg" },
-      { title:"Baby Can I Hold You", file:"music/Tracy Chapman - Baby Can I Hold You (Official Music Video).mp3", cover:"images/chapman.jpg" },
-      { title:"Love Hurts", file:"music/Nazareth - Love Hurts (Official Audio).mp3", cover:"images/lovehurt.jpg" },
-      { title:"Elle est d'ailleurs", file:"music/Pierre Bachelet - Elle est dailleurs (Audio).mp3", cover:"images/Elle-est-dailleurs.jpg" }
-      // Ajoute les autres...
-    ];
-
     const player = document.getElementById('player');
-    const gallery = document.getElementById('trackGallery');
     const playToggle = document.getElementById('playToggle');
-    const nextBtn = document.getElementById('nextBtn');
-    let currentIndex = 0;
+    const galleryImgs = [...document.querySelectorAll('#gallery img')];
+    const nowPlaying = document.getElementById('nowPlaying');
+    const currentTrack = document.getElementById('currentTrack');
 
-    /* === FADE HELPERS === */
-    const FADE_TIME = 800; // ms
+    // Construire la playlist à partir des images
+    const tracks = galleryImgs
+      .filter(img => img.dataset.audio)
+      .map(img => ({
+        title: img.dataset.title || img.alt || 'Titre inconnu',
+        file: img.dataset.audio,
+        cover: img.src
+      }));
+
+    let currentIndex = 0;
+    const FADE_TIME = 800;
     const VOLUME_STEP = 0.05;
 
-    function fade(volumeTarget, callback) {
-      const dir = volumeTarget > player.volume ? 1 : -1;
-      const interval = VOLUME_STEP * FADE_TIME;
-      const fadeInterval = setInterval(() => {
+    function fade(target, cb) {
+      const dir = target > player.volume ? 1 : -1;
+      const steps = Math.abs((target - player.volume) / VOLUME_STEP);
+      const delay = FADE_TIME / (steps || 1);
+      const id = setInterval(() => {
         let v = player.volume + dir * VOLUME_STEP;
-        v = Math.min(1, Math.max(0, v));
+        v = Math.max(0, Math.min(1, v));
         player.volume = v;
-        if ((dir === 1 && v >= volumeTarget) || (dir === -1 && v <= volumeTarget)) {
-          clearInterval(fadeInterval);
-          if (callback) callback();
+        if ((dir === 1 && v >= target) || (dir === -1 && v <= target)) {
+          clearInterval(id);
+          cb && cb();
         }
-      }, interval);
+      }, delay);
     }
 
     function loadTrack(i) {
-      const startNew = () => {
-        player.src = tracks[i].file;
+      const start = () => {
         currentIndex = i;
-        player.load();
+        player.src = tracks[i].file;
         player.volume = 0;
-        player.play();
+        player.load();
+        player.play().catch(e => console.error('Erreur lecture', e));
         fade(1);
-        highlightTrack(i);
+        highlight(i);
+        
+        // Mettre à jour l'indicateur
+        currentTrack.textContent = `♪ ${tracks[i].title}`;
+        nowPlaying.classList.add('active');
       };
-      if (!player.paused) {
-        fade(0, startNew);
-      } else {
-        startNew();
-      }
+      player.paused ? start() : fade(0, start);
     }
 
-    /* === BUILD GALLERY DES TRACKS === */
-    tracks.forEach((t, i) => {
-      const el = document.createElement('div');
-      el.className = 'track';
-      el.innerHTML = `<img src="${t.cover}" alt="${t.title}"><p>${t.title}</p>`;
-      el.addEventListener('click', () => loadTrack(i));
-      gallery.appendChild(el);
-    });
-
-    /* === HIGHLIGHT TRACK EN COURS === */
-    function highlightTrack(i) {
-      const trackElements = gallery.querySelectorAll('.track');
-      trackElements.forEach((el, idx) => {
-        el.style.border = idx === i ? '3px solid var(--accent)' : 'none';
+    function highlight(i) {
+      galleryImgs.forEach((img, idx) => {
+        if (idx === i) {
+          img.classList.add('playing');
+        } else {
+          img.classList.remove('playing');
+        }
       });
     }
 
-    // Load first track on page load silently
-    player.src = tracks[0].file;
-    player.load();
-    player.volume = 1;
-    highlightTrack(0);
+    // Événements sur les images
+    galleryImgs.forEach((img, i) => {
+      img.addEventListener('click', () => {
+        if (i < tracks.length) {
+          loadTrack(i);
+        }
+      });
+    });
 
-    /* === PLAY/PAUSE TOGGLE === */
+    // Contrôle play/pause
     playToggle.addEventListener('click', () => {
       if (player.paused) {
-        fade(1);
-        player.play();
+        if (player.src) {
+          fade(1);
+          player.play();
+        } else {
+          loadTrack(0);
+        }
       } else {
         fade(0, () => player.pause());
       }
     });
-    player.addEventListener('play', () => playToggle.classList.remove('paused'));
-    player.addEventListener('pause', () => playToggle.classList.add('paused'));
 
-    /* === LECTURE AUTOMATIQUE DE LA PISTE SUIVANTE === */
+    // Événements du lecteur
+    player.addEventListener('play', () => {
+      playToggle.classList.remove('paused');
+      nowPlaying.classList.add('active');
+    });
+
+    player.addEventListener('pause', () => {
+      playToggle.classList.add('paused');
+    });
+
     player.addEventListener('ended', () => {
-      let nextIndex = (currentIndex + 1) % tracks.length;
-      loadTrack(nextIndex);
+      loadTrack((currentIndex + 1) % tracks.length);
     });
 
-    /* === CLIC SUR LES IMAGES DE LA GALERIE PHOTO === */
-    const galleryImages = document.querySelectorAll('#gallery img');
-
-    galleryImages.forEach((img, i) => {
-      img.style.cursor = 'pointer';
-      img.addEventListener('click', () => {
-        if (i < tracks.length) {
-          loadTrack(i);
-          player.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-
-    /* === BOUTON SUIVANT === */
-    nextBtn.addEventListener('click', () => {
-      let nextIndex = (currentIndex + 1) % tracks.length;
-      loadTrack(nextIndex);
-    });
-
-    /* === SCROLL OBSERVER POUR LES ANIMATIONS === */
+    // Animation d'apparition
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
+      entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
     }, { threshold: 0.2 });
 
     document.querySelectorAll('.fade-up, .gallery img').forEach(el => observer.observe(el));
