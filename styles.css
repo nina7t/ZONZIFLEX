@@ -117,6 +117,22 @@ section {
   }
 }
 
+#nextBtn {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 1rem auto 0;
+}
+
+#nextBtn:hover {
+  background: #d961a8; /* variante plus foncée de accent */
+}
 /* PLAYER CARD */
 .music-player {
   background: rgba(255, 255, 255, 0.1);
