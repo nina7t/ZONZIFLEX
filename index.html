@@ -193,6 +193,32 @@
     }, { threshold: 0.2 });
 
     document.querySelectorAll('.fade-up, .gallery img').forEach(el => observer.observe(el));
+    const track = document.querySelector('.carousel-track');
+const prevBtn = document.querySelector('.carousel .prev');
+const nextBtn = document.querySelector('.carousel .next');
+const slides = document.querySelectorAll('.carousel img');
+
+let currentSlide = 0;
+
+function updateCarousel() {
+  const slideWidth = slides[0].clientWidth;
+  track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+}
+
+nextBtn.addEventListener('click', () => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  updateCarousel();
+});
+
+window.addEventListener('resize', updateCarousel);
+  
+  
+  
   </script>
 </body>
 </html>
