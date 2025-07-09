@@ -153,9 +153,9 @@ audio {
   margin-bottom: 1.5rem;
   break-inside: avoid;
   filter: grayscale(100%) contrast(1.1);
-  transform: translateY(30px);
+  transform: translateY(20px);
   opacity: 0;
-  transition: filter 0.3s, transform 0.6s ease-out, opacity 0.6s ease-out;
+  transition: filter 0.3s, transform 0.3s ease-out, opacity 0.3s ease-out;
   cursor: pointer;
 }
 
@@ -196,8 +196,8 @@ audio {
 /* Anim fade */
 .fade-up {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(30px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .fade-up.visible {
@@ -278,6 +278,10 @@ footer {
   right: 10px;
 }
 
+
+/* OPTIMISATION POUR AFFICHAGE PLUS RAPIDE */
+/* Optionnel : décommentez la ligne ci-dessous pour afficher les images immédiatement (sans animation) */
+/* .gallery img { opacity: 1 !important; transform: none !important; } */
 
 /* VERSION RESPONSIVE MOBILE OPTIMISÉE */
 @media (max-width: 500px) {

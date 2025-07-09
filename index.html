@@ -194,7 +194,7 @@
 
     document.querySelectorAll('.fade-up, .gallery img').forEach(el => observer.observe(el));
     
-    // Fallback pour mobile : forcer l'affichage des images si elles ne sont pas visibles après 1 seconde
+    // Fallback pour mobile : forcer l'affichage des images si elles ne sont pas visibles après 500ms
     setTimeout(() => {
       const galleryImages = document.querySelectorAll('.gallery img');
       galleryImages.forEach(img => {
@@ -202,7 +202,7 @@
           img.classList.add('visible');
         }
       });
-    }, 1000);
+    }, 500);
     const track = document.querySelector('.carousel-track');
 const prevBtn = document.querySelector('.carousel .prev');
 const nextBtn = document.querySelector('.carousel .next');
