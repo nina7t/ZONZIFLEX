@@ -190,9 +190,19 @@
     // Animation d'apparition
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
-    }, { threshold: 0.2 });
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-up, .gallery img').forEach(el => observer.observe(el));
+    
+    // Fallback pour mobile : forcer l'affichage des images si elles ne sont pas visibles après 1 seconde
+    setTimeout(() => {
+      const galleryImages = document.querySelectorAll('.gallery img');
+      galleryImages.forEach(img => {
+        if (!img.classList.contains('visible')) {
+          img.classList.add('visible');
+        }
+      });
+    }, 1000);
     const track = document.querySelector('.carousel-track');
 const prevBtn = document.querySelector('.carousel .prev');
 const nextBtn = document.querySelector('.carousel .next');

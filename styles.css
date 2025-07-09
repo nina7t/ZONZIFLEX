@@ -323,6 +323,14 @@ footer {
 
   .gallery img {
     border-radius: 10px;
+    /* Forcer l'affichage des images en mobile */
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .gallery img.visible {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .now-playing {
